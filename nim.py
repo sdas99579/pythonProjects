@@ -19,14 +19,19 @@ def getTokens(curTokens):
 
 def compTurn(curTokens):
     global tokens
+    if(curTokens>4 or curTokens<4):
+        take = curTokens % 4
+        tokens = curTokens - take
+        print(f'Computer takes {take} tokens.')
+        print(f'{tokens} tokens remaining.\n')
+    elif(curTokens==4):
+        take = (curTokens-1) % 4
+        tokens = curTokens - take
+        print(f'Computer takes {take} tokens.')
+        print(f'{tokens} tokens remaining.\n')
 
-    take = curTokens % 4
-    tokens = curTokens - take
-    print(f'Computer takes {take} tokens.')
-    print(f'{tokens} tokens remaining.\n')
 
-
-tokens = 21
+tokens = int(input("Enter no of stones"))
 while (tokens > 0):
     getTokens(tokens)
     compTurn(tokens)
